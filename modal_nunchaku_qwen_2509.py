@@ -42,7 +42,7 @@ image = image.env(
     }
 )
 
-app = modal.App("nunchaku-qwen-image-fastapi")
+app = modal.App("nunchaku-qwen-plus-image-fastapi")
 
 with image.imports():
     import torch
@@ -98,7 +98,7 @@ class NunchakuQwenImageModel:
         self.scheduler = FlowMatchEulerDiscreteScheduler.from_config(scheduler_config)
 
         # Model path for the new 2509 model
-        model_path = f"nunchaku-tech/nunchaku-qwen-image-edit-2509/svdq-{self.precision}_r{rank}-qwen-image-edit-2509-lightningv2.0-{num_inference_steps}steps.safetensors"
+        model_path = f"nunchaku-tech/nunchaku-qwen-plus-image-edit-2509/svdq-{self.precision}_r{rank}-qwen-image-edit-2509-lightningv2.0-{num_inference_steps}steps.safetensors"
 
         # Load the quantized transformer
         self.transformer = NunchakuQwenImageTransformer2DModel.from_pretrained(
